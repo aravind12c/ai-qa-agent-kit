@@ -1,0 +1,64 @@
+project:
+  name: "replace-with-project-name"
+  feature_slug: "replace-with-feature-slug"
+  requirements_source: "paste path or description"
+  run_id: "generate-unique-run-id"
+
+repository:
+  root: "."
+  artifact_dir: "qa-artifacts"
+  read_only_initially: true
+  default_branch: "main"
+
+execution:
+  allow_file_writes: false
+  allow_dependency_install: false
+  allow_network_calls: false
+  allow_shared_environment_mutation: false
+  allow_performance_tests: false
+  require_approval_before_test_execution: true
+  require_approval_before_destructive_actions: true
+
+quality:
+  risk_scale: "likelihood_1_to_5_times_impact_1_to_5"
+  minimum_traceability: 1
+  require_negative_cases: true
+  require_boundary_analysis_when_numeric_or_ordered: true
+  require_accessibility_assessment: true
+  require_performance_assessment: true
+  require_security_assessment: true
+  require_independent_review: true
+  automation_priority_order:
+    - "high-risk-repeatable-regression"
+    - "stable-api-contract"
+    - "critical-user-journey"
+    - "data-integrity-and-permissions"
+    - "high-volume-repetitive-checks"
+
+framework:
+  language: "discover-from-repository"
+  package_manager: "discover-from-repository"
+  test_runner: "discover-from-repository"
+  api_test_stack: "discover-from-repository"
+  ui_test_stack: "discover-from-repository"
+  existing_helpers_to_reuse: []
+  commands_to_run: []
+  conventions:
+    naming: "discover-from-repository"
+    fixtures: "discover-from-repository"
+    test_data: "discover-from-repository"
+    reporting: "discover-from-repository"
+
+environments:
+  allowed_targets: []
+  prohibited_targets:
+    - "production"
+  test_accounts: "use-approved-secret-manager-or-environment-variables"
+  data_policy: "synthetic-or-approved-test-data-only"
+
+delivery:
+  output_formats:
+    - "markdown"
+    - "csv"
+  stop_on_blocker: true
+  report_unverified_assumptions: true
