@@ -1,6 +1,6 @@
 project:
-  name: "replace-with-project-name"
-  feature_slug: "replace-with-feature-slug"
+  name: "dummy-project-replace-with-project-name"
+  feature_slug: "replace-with-feature"
   requirements_source: "paste path or description"
   run_id: "generate-unique-run-id"
 
